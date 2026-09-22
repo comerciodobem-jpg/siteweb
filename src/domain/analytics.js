@@ -53,3 +53,18 @@ export function filterRecordsByPeriod(records, period, now = new Date()) {
   }
   return records;
 }
+
+export function confirmedReviewTotals(reviews, now = new Date()) {
+  const weekStart = startOfWeek(now);
+  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+  let today = 0, week = 0, month = 0;
+  for (const review of reviews ?? []) {
+    const when = new Date(review.reviewed_at);
+    const qty = Number(review.confirmed_quantity || 0);
+    if (Number.isNaN(when.getTime())) continue;
+    if (sameDay(when, now)) today += qty;
+    if (when >= weekStart && when <= now) week += qty;
+    if (when >= monthStart && when <= now) month += qty;
+  }
+  return { today, week, month };
+}

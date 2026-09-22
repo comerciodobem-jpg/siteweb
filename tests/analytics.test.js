@@ -22,3 +22,13 @@ test('weekly buckets return seven day quantities ending today', () => {
   assert.equal(buckets.at(-1).quantity, 10);
   assert.equal(buckets.at(-2).quantity, 20);
 });
+
+test('confirmed review totals are scoped to today week and month', async () => {
+  const { confirmedReviewTotals } = await import('../src/domain/analytics.js');
+  const reviews = [
+    { confirmed_quantity: 15, reviewed_at: '2026-09-22T11:00:00-03:00' },
+    { confirmed_quantity: 25, reviewed_at: '2026-09-21T16:00:00-03:00' },
+    { confirmed_quantity: 35, reviewed_at: '2026-08-30T16:00:00-03:00' }
+  ];
+  assert.deepEqual(confirmedReviewTotals(reviews, base), { today: 15, week: 40, month: 40 });
+});

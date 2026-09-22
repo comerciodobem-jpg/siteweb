@@ -1,5 +1,5 @@
 import { demoProducts } from '../data/demo-data.js';
-import { periodTotals, weeklyBuckets } from '../domain/analytics.js';
+import { periodTotals, weeklyBuckets, confirmedReviewTotals } from '../domain/analytics.js';
 import { activeNeeds, calculateNeedProgress, needStatus } from '../domain/needs.js';
 import { nf } from './common.js';
 
@@ -8,7 +8,7 @@ export function renderResults({ mount, state, session }) {
   const reviews = (state.productionReviews ?? []).filter((review) => review.company_id === session.companyId);
   const totals = periodTotals(records);
   const buckets = weeklyBuckets(records);
-  const confirmedMonth = reviews.reduce((sum, review) => sum + Number(review.confirmed_quantity || 0), 0);
+  const confirmedTotals = confirmedReviewTotals(reviews);
   const needs = activeNeeds(state, session.companyId);
   const urgent = needs.filter((need) => need.priority === 'URGENT');
 
@@ -32,7 +32,7 @@ export function renderResults({ mount, state, session }) {
         </div>
         <div class="result-confirmed">
           <span>Já conferido</span>
-          <strong>${nf.format(confirmedMonth)} un.</strong>
+          <strong>${nf.format(confirmedTotals.month)} un.</strong>
           <small>O estoque oficial só recebe o que foi validado.</small>
         </div>
       </div>
