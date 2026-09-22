@@ -24,5 +24,7 @@ Aplicativo operacional do módulo de Produção do Óris 360. O objetivo é regi
 10. [08-DECISION-LOG.md](docs/produzir-registra/08-DECISION-LOG.md)
 11. [09-AI-HANDOFF-PROMPT.md](docs/produzir-registra/09-AI-HANDOFF-PROMPT.md)
 12. [10-CONVERSATION-KNOWLEDGE-MAP.md](docs/produzir-registra/10-CONVERSATION-KNOWLEDGE-MAP.md)
+13. [11-SOURCE-TRACEABILITY.md](docs/produzir-registra/11-SOURCE-TRACEABILITY.md)
+14. [Design consolidado](docs/superpowers/specs/2026-09-22-produzir-registra-design.md)
 
 A arquitetura conceitual em forma de teia está em [knowledge-graph.mmd](docs/produzir-registra/diagrams/knowledge-graph.mmd).
