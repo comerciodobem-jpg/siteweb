@@ -64,5 +64,6 @@ Leia [12-RUN-AND-DEPLOY.md](docs/produzir-registra/12-RUN-AND-DEPLOY.md).
 14. [12-RUN-AND-DEPLOY.md](docs/produzir-registra/12-RUN-AND-DEPLOY.md)
 15. [Design consolidado](docs/superpowers/specs/2026-09-22-produzir-registra-design.md)
 16. [Plano de implementação](docs/superpowers/plans/2026-09-22-produzir-registra-site.md)
+17. [QA e revisão de design](docs/produzir-registra/13-QA-AND-DESIGN-REVIEW.md)
 
 A arquitetura conceitual em forma de teia está em [knowledge-graph.mmd](docs/produzir-registra/diagrams/knowledge-graph.mmd).
